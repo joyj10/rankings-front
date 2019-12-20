@@ -1,9 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Main from "../views/Main";
+
 
 Vue.use(VueRouter)
+
+const Main = () => import('@/views/Main.vue')
+const Online = () => import('@/views/OnlineRanking.vue')
+const Mobile = () => import('@/views/MobileRanking.vue')
+const Genre = () => import('@/views/GenreRanking.vue')
+const Notice = () => import('@/views/Notice.vue')
 
 const routes = [
   {
@@ -12,13 +17,25 @@ const routes = [
     component: Main
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/online',
+    name: 'online',
+    component: Online
+  },
+  {
+    path: '/mobile',
+    name: 'mobile',
+    component: Mobile
+  },
+  {
+    path: '/genre',
+    name: 'genre',
+    component: Genre
+  },
+  {
+    path: '/notice',
+    name: 'notice',
+    component: Notice
+  },
 ]
 
 const router = new VueRouter({

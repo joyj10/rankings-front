@@ -1,4 +1,5 @@
 <template>
+    <div>
     <footer id="footer">
         <ul class="icons">
             <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -9,12 +10,13 @@
         </ul>
         <p class="copyright">&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
     </footer>
+    </div>
 </template>
 
 <script>
-    export default {
-        name: "Footer"
-    }
+export default {
+    name: "Footer"
+}
 </script>
 
 <style scoped>
