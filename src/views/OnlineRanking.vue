@@ -1,7 +1,10 @@
 <template>
-    <div id="wrapper">
-        <top-section icon="fa-star" title="Online Game Ranking"></top-section>
-        <card :game-list="gameList"></card>
+    <div>
+        <img src="/img/game1.jpg" class="top-img">
+        <div id="wrapper">
+            <top-section icon="fa-star" title="Online Game Ranking"></top-section>
+            <card :game-list="gameList"></card>
+        </div>
     </div>
 </template>
 

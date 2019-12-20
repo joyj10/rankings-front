@@ -1,17 +1,16 @@
 <template>
     <div id="wrapper">
         <top-section icon="fa-newspaper-o" title="NOTICE"></top-section>
-        <table-show :items="items"></table-show>
+        <compoTable :items="items"/>
     </div>
 </template>
 
 <script>
 import compoTable from "../components/table";
 import TopSection from "../components/TopSection";
-import TableShow from "../components/TableShow";
 export default {
-    name: "Notice",
-    components: {TableShow, TopSection},
+    name: "board",
+    components: {TopSection, compoTable},
     data() {
         return {
             items: [

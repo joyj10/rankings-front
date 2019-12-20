@@ -1,8 +1,12 @@
 <template>
-    <div id="wrapper">
-        <top-section icon="fa-mobile-phone" title="Mobile Game Ranking"></top-section>
-        <card :game-list="gameList"></card>
+    <div>
+        <img src="/img/game4.jpg" class="top-img">
+        <div id="wrapper">
+            <top-section icon="fa-mobile-phone" title="Mobile Game Ranking"></top-section>
+            <card :game-list="gameList"></card>
+        </div>
     </div>
+
 </template>
 
 <script>
