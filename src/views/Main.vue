@@ -8,6 +8,7 @@
         <mainItem
             :itemList = "itemList"
         />
+        <h1>!!!!</h1>
         <mainText></mainText>
     </div>
 </template>
