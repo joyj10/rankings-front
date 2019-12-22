@@ -8,7 +8,7 @@
                 </header>
                 <p>{{item.description}}</p>
                 <ul class="actions">
-                    <li><a :href="item.link" class="button" target="_blank">More</a></li>
+                    <li><a :href="item.link" class="button-custom" target="_blank">More</a></li>
                 </ul>
             </article>
         </section>

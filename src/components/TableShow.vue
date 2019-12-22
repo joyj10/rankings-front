@@ -9,8 +9,8 @@
                  :current-page="currentPage"
             >
                 <template v-slot:cell(actions)="row">
-                    <b-button variant="light" style="height: auto; font-size: small" @click="row.toggleDetails">
-                        {{ row.detailsShowing ? 'Hide' : 'Show' }}
+                    <b-button size="sm" variant="outline-primary" @click="row.toggleDetails">
+                        {{ row.detailsShowing ? 'Hide' : 'Detail' }}
                     </b-button>
                 </template>
 
@@ -36,9 +36,10 @@
 </template>
 
 <script>
+import Write from "./Write";
 export default {
     name: "tableShow",
-    components: {},
+    components: {Write},
     props: {
         items: [],
     },
@@ -65,5 +66,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

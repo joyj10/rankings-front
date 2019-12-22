@@ -5,7 +5,7 @@
             accumsan lacus a nibh commodo in pellentesque dui<br />
             in hac habitasse platea dictumst.</p>
         <ul class="actions">
-            <li><a href="#" class="button big">Get Started</a></li>
+            <li><a href="#" class="button-custom big">Get Started</a></li>
         </ul>
     </section>
 </template>

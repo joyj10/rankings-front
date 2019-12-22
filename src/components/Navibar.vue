@@ -7,10 +7,11 @@
 
         <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav class="font-13">
-                <b-nav-item><router-link :to="{name: 'notice'}">NOTICE</router-link></b-nav-item>
                 <b-nav-item><router-link :to="{name: 'online'}">ONLINE</router-link></b-nav-item>
                 <b-nav-item><router-link :to="{name: 'mobile'}">MOBILE</router-link></b-nav-item>
                 <b-nav-item><router-link :to="{name: 'genre'}">GENRE</router-link></b-nav-item>
+                <b-nav-item><router-link :to="{name: 'notice'}">NOTICE</router-link></b-nav-item>
+                <b-nav-item><router-link to="/board">BOARD</router-link></b-nav-item>
             </b-navbar-nav>
 
             <!-- Right aligned nav items -->
@@ -20,7 +21,8 @@
                     <b-dropdown-item href="#" class="font-sm">Korea</b-dropdown-item>
                 </b-nav-item-dropdown>
 
-                <b-nav-item href="#">User</b-nav-item>
+                <b-nav-item v-b-modal.modal-login>Login</b-nav-item>
+                <ModalLogin></ModalLogin>
             </b-navbar-nav>
         </b-collapse>
     </b-navbar>
@@ -28,8 +30,10 @@
 </template>
 
 <script>
+    import ModalLogin from "./ModalLogin";
     export default {
-        name: "Navibar"
+        name: "Navibar",
+        components: {ModalLogin}
     }
 </script>
 

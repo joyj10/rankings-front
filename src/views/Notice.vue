@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import compoTable from "../components/table";
 import TopSection from "../components/TopSection";
 import TableShow from "../components/TableShow";
 export default {

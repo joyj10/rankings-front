@@ -9,6 +9,9 @@ const Online = () => import('@/views/OnlineRanking.vue')
 const Mobile = () => import('@/views/MobileRanking.vue')
 const Genre = () => import('@/views/GenreRanking.vue')
 const Notice = () => import('@/views/Notice.vue')
+const Board = () => import('@/views/Board.vue')
+const BoardPost = () => import('@/views/BoardPost.vue')
+const BoardUpdate = () => import('@/views/BoardUpdate.vue')
 
 const routes = [
   {
@@ -35,6 +38,14 @@ const routes = [
     path: '/notice',
     name: 'notice',
     component: Notice
+  },
+  {
+    path: '/board',
+    component: Board,
+  },
+  {
+    path: '/board/post',
+    component: BoardPost
   },
 ]
 

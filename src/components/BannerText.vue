@@ -7,7 +7,7 @@
             malesuada turpis. Nam pellentesque in ac aliquam. Aliquam tempor<br />
             mi porta egestas maximus lorem ipsum dolor.</p>
         <ul class="actions">
-            <li><a href="#" class="button big">Online Game Ranking</a></li>
+            <li><a href="#" class="button-custom big">Online Game Ranking</a></li>
         </ul>
     </section>
 </template>
