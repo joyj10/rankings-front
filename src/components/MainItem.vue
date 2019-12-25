@@ -21,7 +21,9 @@ import { mapState, mapActions, mapGetters } from 'vuex';
 export default {
     name: "mainItem",
     props: {
-        itemList : [],
+        itemList : {
+            type: Array
+        },
     },
     computed: {
         ...mapGetters(['getImagePath'])

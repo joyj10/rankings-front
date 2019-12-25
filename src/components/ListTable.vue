@@ -1,6 +1,6 @@
 <template>
     <div class="overflow-auto m-auto w-80">
-        <div class="col-2 mb-2 float-right">
+        <div v-if="options.length > 0" class="col-2 mb-2 float-right">
             <b-form-select
                     v-model="filter"
                     id="filterInput"
@@ -16,7 +16,6 @@
                      :per-page="perPage"
                      :current-page="currentPage"
                      :filter="filter"
-                     :filterIncludedFields="filterOn"
                      @filtered="onFiltered"
             >
                 <template v-slot:table-colgroup="scope">
@@ -24,10 +23,10 @@
                          :key="field.key"
                          :style="checkedWidth(field.key)">
                 </template>
-                <template v-slot:cell(img)="data">
-                    <img width="180px;" :src="data.value">
+                <template v-slot:cell(image)="data">
+                    <img width="180px;" :src="getImagePath(data.value)">
                 </template>
-                <template class="m-auto"  v-slot:cell(ranking)="data">
+                <template class="m-auto"  v-slot:cell(g_rank)="data">
                     <div class="align-right pt-3">
                         <b-card-title>
                             <span style="font-size: 45px;">{{data.value}}</span>
@@ -42,7 +41,7 @@
                                 <div class="mb-1" style="font-size: x-large">{{data.value.name}}</div>
                             </b-card-sub-title>
                             <b-card-text>
-                                <div class="mt-0" style="font-size: medium">{{data.value.genre}} / {{data.value.age}} /{{data.value.company}}</div>
+                                <div class="mt-0" style="font-size: medium">{{data.value.genre}} / {{data.value.age}} / {{data.value.company}}</div>
                             </b-card-text>
                         </div>
                     </a>
@@ -67,12 +66,16 @@
         components: {},
         props: {
             items: [],
+            options: [],
         },
         computed: {
         },
         mounted() {
             // Set the initial number of items
-            this.totalRows = this.items.length
+            console.log(this.items)
+            this.totalRows = this.items.length;
+            console.log(this.items.length);
+            console.log(this.totalRows)
         },
         data() {
             return{
@@ -80,18 +83,18 @@
                 currentPage: 1,
                 totalRows: 1,
                 fields: [
-                    { key: 'ranking', thStyle: {display: 'none'}},
-                    { key: 'img', thStyle: {display: 'none'}},
+                    { key: 'g_rank', thStyle: {display: 'none'}},
+                    { key: 'image', thStyle: {display: 'none'}},
                     { key: 'description', thStyle: {display: 'none'}, filterByFormatted: true},
                 ],
                 filter: null,
-                options: [
-                    { value: null, text: '전체'},
-                    { value: '롤플레잉', text: '롤플레잉'},
-                    { value: '아케이드', text: '아케이드'},
-                    { value: 'RPG', text: 'RPG'},
-                    { value: '퍼즐', text: '퍼즐'},
-                ],
+                // options: [
+                //     { value: null, text: '전체'},
+                //     { value: '롤플레잉', text: '롤플레잉'},
+                //     { value: '아케이드', text: '아케이드'},
+                //     { value: 'RPG', text: 'RPG'},
+                //     { value: '퍼즐', text: '퍼즐'},
+                // ],
             }
         },
         methods: {
@@ -106,8 +109,11 @@
                 // Trigger pagination to update the number of buttons/pages due to filtering
                 this.totalRows = filteredItems.length
                 this.currentPage = 1
+            },
+            getImagePath(img) {
+                return "/img/game/"+img;
             }
-        }
+        },
     }
 </script>
 

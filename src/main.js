@@ -6,10 +6,12 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import LoadScript from "vue-plugin-load-script";
+import axios from 'axios'
 
 
 Vue.use(BootstrapVue)
 
+Vue.prototype.$axios = axios;
 // 외부 스크립트 import
 Vue.use(LoadScript);
 Vue.loadScript()

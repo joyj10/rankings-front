@@ -11,30 +11,30 @@
 import TopSection from "../components/TopSection";
 import TableShow from "../components/TableShow";
 import Write from "../components/Write";
+import axios from 'axios';
+
 export default {
     name: "board",
     components: {Write, TableShow, TopSection},
     data() {
         return {
-            items: [
-                { no: 40, title: 'Dickerson', content: '내용입니다.!!!!!!', writer: 'Macdonald', date: '2019-12-11' },
-                { no: 21, title: 'Larsen', content: '내용입니다.!!!!!!',  writer: 'Shaw', date: '2019-12-11'  },
-                { no: 89, title: 'Geneva', content: '내용입니다.!!!!!!', writer: 'Wilson', date: '2019-12-11'  },
-                { no: 38, title: 'Jami', content: '내용입니다.!!!!!!', writer: 'Carney', date: '2019-12-11'  },
-                { no: 40, title: 'Dickerson', content: '내용입니다.!!!!!!', writer: 'Macdonald', date: '2019-12-11' },
-                { no: 21, title: 'Larsen', content: '내용입니다.!!!!!!', writer: 'Shaw', date: '2019-12-11'  },
-                { no: 89, title: 'Geneva', content: '내용입니다.!!!!!!', writer: 'Wilson', date: '2019-12-11'  },
-                { no: 38, title: 'Jami', content: '내용입니다.!!!!!!', writer: 'Carney', date: '2019-12-11'  },
-                { no: 40, title: 'Dickerson',content: '내용입니다.!!!!!!',  writer: 'Macdonald', date: '2019-12-11' },
-                { no: 21, title: 'Larsen', content: '내용입니다.!!!!!!', writer: 'Shaw', date: '2019-12-11'  },
-                { no: 89, title: 'Geneva', content: '내용입니다.!!!!!!', writer: 'Wilson', date: '2019-12-11'  },
-                { no: 38, title: 'Jami', content: '내용입니다.!!!!!!', writer: 'Carney', date: '2019-12-11'  },
-                { no: 40, title: 'Dickerson', content: '내용입니다.!!!!!!', writer: 'Macdonald', date: '2019-12-11' },
-                { no: 21, title: 'Larsen', content: '내용입니다.!!!!!!', writer: 'Shaw', date: '2019-12-11'  },
-                { no: 89, title: 'Geneva',content: '내용입니다.!!!!!!',  writer: 'Wilson', date: '2019-12-11'  },
-                { no: 38, title: 'Jami',content: '내용입니다.!!!!!!',  writer: 'Carney', date: '2019-12-11'  },
-            ]
+            items: []
         }
+    },
+    methods: {
+        fetchBoard() {
+            axios.get('api/board/list')
+            .then((response) => {
+                console.log(response);
+                this.items = response.data;
+            })
+            .catch((e) => {
+                console.log("Error:", e)
+            })
+        }
+    },
+    mounted() {
+        this.fetchBoard();
     }
 }
 </script>

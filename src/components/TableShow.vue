@@ -16,9 +16,13 @@
 
                 <template v-slot:row-details="row">
                     <b-card>
-                        <ul>
-                            <li v-for="(value, key) in row.item" :key="key">{{ key }}: {{ value }}</li>
-                        </ul>
+                        <b-card-text class="m-3 mb-4">
+                            {{row.item.content}}
+                        </b-card-text>
+                        <hr>
+                        <div v-if = "row.item.image !=null" class="mt-3 text-center">
+                            <img :src="getImagePath(row.item.image)" style="width: 90%"><br/>
+                        </div>
                     </b-card>
                 </template>
             </b-table>
@@ -51,14 +55,19 @@ export default {
     data() {
         return{
             fields: [
-                { key: 'no', label: 'No.', sortable: true, sortDirection: 'desc' },
+                { key: 'id', label: 'No.', sortable: true, sortDirection: 'desc' },
                 { key: 'title', label: '제목', sortable: true },
                 { key: 'writer', label: '작성자', sortable: true },
-                { key: 'date', label: '작성일', sortable: true },
+                { key: 'created_at', label: '작성일', sortable: true },
                 { key: 'actions', label: '상세' }
             ],
             perPage: 10,
             currentPage: 1,
+        }
+    },
+    methods: {
+        getImagePath(img) {
+            return "/img/"+img;
         }
     }
 
