@@ -45,7 +45,10 @@ export default {
     name: "tableShow",
     components: {Write},
     props: {
-        items: [],
+        items: {
+            type: Array,
+            deafult: () => []
+        },
     },
     computed: {
       rows() {

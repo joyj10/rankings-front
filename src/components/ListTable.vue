@@ -26,7 +26,7 @@
                 <template v-slot:cell(image)="data">
                     <img width="180px;" :src="getImagePath(data.value)">
                 </template>
-                <template class="m-auto"  v-slot:cell(g_rank)="data">
+                <template class="m-auto"  v-slot:cell(ranking)="data">
                     <div class="align-right pt-3">
                         <b-card-title>
                             <span style="font-size: 45px;">{{data.value}}</span>
@@ -65,8 +65,14 @@
         name: "ListTable",
         components: {},
         props: {
-            items: [],
-            options: [],
+            items: {
+                type: Array,
+                deafult: () => []
+            },
+            options: {
+                type: Array,
+                deafult: () => []
+            },
         },
         computed: {
         },
@@ -83,7 +89,7 @@
                 currentPage: 1,
                 totalRows: 1,
                 fields: [
-                    { key: 'g_rank', thStyle: {display: 'none'}},
+                    { key: 'ranking', thStyle: {display: 'none'}},
                     { key: 'image', thStyle: {display: 'none'}},
                     { key: 'description', thStyle: {display: 'none'}, filterByFormatted: true},
                 ],

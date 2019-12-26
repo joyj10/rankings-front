@@ -20,9 +20,11 @@ export default {
         return {
             gameList: {
                 type: Array,
+                deafult: () => []
             },
             options: {
                 type: Array,
+                deafult: () => []
             },
             // options: [
             //     { value: null, text: '전체'},
